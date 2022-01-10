@@ -1,0 +1,21 @@
+[package]
+name = "wasmertest"
+version = "0.1.0"
+edition = "2021"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[dependencies]
+wasmer = {version="2.1.1",features=["universal","llvm"],default-features = false}
+wasmer-wasi = {version="2.1.1"}
+
+flexi_logger = {version="0.22",features=["use_chrono_for_offset"]}
+log = "0.4"
+

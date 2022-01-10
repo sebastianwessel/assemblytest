@@ -1,0 +1,28 @@
+{
+  "name": "assemblytest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests",
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --runtime minimal --exportRuntime --explicitStart --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "lint": "eslint --max-warnings 0 \"**/assembly/**/*.{js,ts}\"",
+    "lint:fix": "eslint --max-warnings 0 \"**/assembly/**/*.{js,ts}\" --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.19.22",
+    "as-wasi": "^0.4.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "assemblyscript": "^0.19.22",
+    "eslint": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "typescript": "^4.5.4"
+  }
+}
